@@ -389,7 +389,7 @@ func (d *Dealer) Close() {
 
 func (d *Dealer) run() {
 	for action := range d.actionChan {
-		action()
+		go action()
 	}
 	if d.debug {
 		d.log.Print("Dealer stopped")
